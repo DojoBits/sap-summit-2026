@@ -78,15 +78,52 @@ sudo apt update
 sudo apt install python3.12-venv tree -y
 ```
 
+Clone the lab repo from GitHub:
+
 ```bash
 cd ~
-git clone https://github.com/Dojobits/asi02-tool-misuse-lab.git lab
-cd lab
+git clone https://github.com/DojoBits/sap-summit-2026.git
+
+# Move the lab into home directory
+mv sap-summit-2026/lab ~/lab
+cd ~/lab
+```
+
+Lets set up a Python virtual environment
+
+```bash
 python3 -m venv .venv && source .venv/bin/activate
+```
+
+You should see the prompt change to indicate the virtual environment is active:
+
+```
+(.venv) ubuntu@ip-172-31-20-213:~/lab$
+```
+
+Now install the dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Here is a **Lab directory layout:**
+Expected output (may vary):
+
+```bash
+...
+...
+Using cached s3transfer-0.18.0-py3-none-any.whl (88 kB)
+Using cached urllib3-2.7.0-py3-none-any.whl (131 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: urllib3, six, jmespath, python-dateutil, botocore, s3transfer, boto3
+Successfully installed boto3-1.43.20 botocore-1.43.20 jmespath-1.1.0 python-dateutil-2.9.0.post0 s3transfer-0.18.0 six-1.17.0 urllib3-2.7.0
+```
+
+Everything is ready. You are now in the `lab` directory, with all the files and dependencies you need to run DevBot and do the exercises.
+
+### 0.4 Lab structure and setup
+
+Let's quickly review the lab structure before we dive in. Here is a **Lab directory layout:**
 
 ```
 lab/
@@ -180,7 +217,7 @@ You can drive DevBot two ways:
 
 ---
 
-### 0.4 Choose your backend (start with Mock)
+### 0.5 Choose your backend (start with Mock)
 
 DevBot runs against either a deterministic **mock** model or a **real LLM on Amazon Bedrock**. You'll use both:
 
