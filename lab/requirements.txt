@@ -1,0 +1,3 @@
+# DevBot lab dependencies — intentionally minimal (no heavy ML libs).
+# boto3 is only needed for the Bedrock backend; the mock backend needs nothing.
+boto3>=1.34.0
